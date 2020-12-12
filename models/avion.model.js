@@ -14,7 +14,7 @@ Avion.getAllAvions = (result) => {
             console.log('Impossible de récupérer tous les listes des avions',err);
             result(null,err);
         }
-        console.log('Liste des avions');
+        // console.log('Liste des avions');
         result(null,res);
     })
 }
@@ -35,16 +35,32 @@ Avion.getOneAvion = (id,result) => {
 // Enregistrement d'un avion
 Avion.postAvion = (avionData,result) => {
     // console.log(avionData);
-    // console.log('INSERT INTO avion SET ?',avionData);
 
     dbConn.query('INSERT INTO avion SET ?',avionData,(err,res) => {
         if(err){
-            console.log("Echec de l'enregistrement");
+            console.log("Echec de l'enregistrement de l'avion");
             result(null,{status:false,message:err});
         }
         else if(!err){
             console.log("avion enregistré avec succès");
             result(null,{status:true,message:"avion enregistré avec succèssss",insertId:res.id});
+        }
+    })
+}
+
+// Modification d'un avion
+Avion.putAvion = (id,avionData,result) => {
+    // console.log(id+" "+avionData.numAvion);
+    // console.log(result);
+
+    dbConn.query("UPDATE `avion` SET `numAvion`= ?,`design`= ?,`itineraire`= ? WHERE id = ?",[avionData.numAvion,avionData.design,avionData.itineraire,id],(err,res) => {
+        if(err){
+            console.log("Echec du modification de l'avion");
+            result(null,err);
+        }
+        else if(!err){
+            console.log("Avion modifié avec succès");
+            result(null,res);
         }
     })
 }

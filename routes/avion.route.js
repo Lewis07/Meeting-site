@@ -11,4 +11,7 @@ router.get('/:id',avionController.findAvion);
 // Enregistrement d'un avion
 router.post('/',avionController.createAvion);
 
+// Modification d'un avion
+router.put('/:id',avionController.updateAvion);
+
 module.exports = router;
