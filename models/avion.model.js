@@ -65,4 +65,17 @@ Avion.putAvion = (id,avionData,result) => {
     })
 }
 
+Avion.deleteAvion = (id,result) => {
+    dbConn.query("DELETE FROM avion WHERE id= ?",[id],(err,res) => {
+        if(err){
+            console.log("Echec de suppression de l'avion");
+            result(null,err);
+        }
+        else if(!err){
+            console.log("Avion supprimé avec succès");
+            result(null,res);
+        }
+    });
+}
+
 module.exports = Avion;

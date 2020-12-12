@@ -14,4 +14,7 @@ router.post('/',avionController.createAvion);
 // Modification d'un avion
 router.put('/:id',avionController.updateAvion);
 
+// Suppression d'un avion
+router.delete('/:id',avionController.deleteAvion);
+
 module.exports = router;

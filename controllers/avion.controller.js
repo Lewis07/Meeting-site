@@ -79,3 +79,16 @@ exports.updateAvion = (req,res) => {
         })
     }
 }
+
+// Suppression d'un avion
+exports.deleteAvion = (req,res) => {
+    let id = req.params.id;
+    AvionModel.deleteAvion(id,(err,avion) => {
+        if(err){
+            res.send(err);
+        }
+        else if(!err){
+            res.json({status:true,message:'Avion supprimé avec succès'});
+        }
+    })
+}
