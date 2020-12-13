@@ -13,9 +13,15 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 const avionRoutes = require('./routes/avion.route');
+const voyageurRoutes = require('./routes/voyageur.route');
+const reservationRoutes = require('./routes/reservation.route');
+const triRoutes = require('./routes/triVoyageur.route');
 
-// Créer route des avions
+// Route des applications
 app.use('/api/avions',avionRoutes);
+app.use('/api/voyageurs',voyageurRoutes);
+app.use('/api/reservations',reservationRoutes);
+app.use('/api/tri',triRoutes);
 
 app.listen(port,() => {
     console.log(`Le serveur écoute sur le port ${port}`);

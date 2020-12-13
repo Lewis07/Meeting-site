@@ -65,6 +65,7 @@ Avion.putAvion = (id,avionData,result) => {
     })
 }
 
+// Suppression d'un avion
 Avion.deleteAvion = (id,result) => {
     dbConn.query("DELETE FROM avion WHERE id= ?",[id],(err,res) => {
         if(err){

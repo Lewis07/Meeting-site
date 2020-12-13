@@ -15,7 +15,7 @@ exports.findAllAvion = (req,res) => {
 
 // Récupérer un avion
 exports.findAvion = (req,res) => {
-    console.log('un avion');
+    // console.log('un avion');
     let id = req.params.id;
     AvionModel.getOneAvion( id,(err,avion) => {
         if(err) res.send(err);
@@ -92,3 +92,4 @@ exports.deleteAvion = (req,res) => {
         }
     })
 }
+
